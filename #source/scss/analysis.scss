@@ -1,0 +1,99 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+.analysis {
+	background: #F4F4F4;
+	.container {
+		@include jcw(space-between, $c, nowrap);
+	}
+	&__body {
+		padding: 100px 0 84px;
+		color: #282827;
+		flex: 0 0 auto;
+    	position: relative;
+		h2 {
+			width: 638px;
+		}
+		p {
+			padding-top: 40px
+		}
+	}
+	&__img {
+		margin-left: -124px;
+	}
+	&__get {
+		width: 524px;
+	}
+	&__columns {
+		@include jcw(space-between, $c, $w);
+		margin-top: 52px;
+	}
+	&__column {
+		div {
+			padding: 24px 0;
+		}
+		&:first-of-type {
+			font-weight: 600;
+			div {
+				@include jcw(flex-start, $c, $w);
+				padding-left: 30px;
+				position: relative;
+				&:first-of-type {
+					background-image: url('/img/analysis/Vector.svg');
+					background-size: cover;
+					background-repeat: no-repeat;
+					width: 290px;
+					height: 76px;
+					&:after {
+						content: url('/img/analysis/search.svg');
+						position: absolute;
+						right: 2rem;
+					}
+				}
+			}
+		}
+	}
+	&__btn {
+		margin-top: 34px;
+		width: 100%;
+	}
+}
+
+@media (max-width: 1200px) {
+	.analysis {
+		.container {
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		&__body,
+		&__body h2,
+		&__get {
+			width: 100%;
+		}
+		&__body {
+			padding: 50px 0 0 0;
+		}
+		&__img {
+		    margin: 0 auto;
+		    img {
+				width: 50%;
+				display: flex;
+				margin: 0 auto;
+		    }
+		}
+	}
+}
+@media (max-width: 767px) {
+	.analysis {
+		&__body {
+			text-align: center;
+		}
+	}
+}

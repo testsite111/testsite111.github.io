@@ -1,0 +1,8 @@
+<form action="/" method="post">
+	<input type="text" name="name" class="name" placeholder="Ваше имя" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ваше имя'" minlength="3" maxlength="20" required>
+	<input type="tel" name="phone" class="phone" placeholder="Ваш телефон" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ваш телефон'" pattern="[0-9]{11,11}" required>
+	<input type="mail" name="email" class="email" placeholder="Ваш e-mail" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Ваш e-mail'" pattern="[a-z]+@+[a-z]+.ru" required>
+	<div class="btn">
+		<button type="submit">Получить бизнес-план</button>
+	</div>
+</form>

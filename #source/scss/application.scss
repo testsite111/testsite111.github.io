@@ -1,0 +1,150 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+
+.application {
+	background: #F5F6FA;
+	position: relative;
+	overflow: hidden;
+	&__body {
+		width: 100%;
+		max-width: 562px;
+		padding: 113px 0;
+		div {
+			margin-top: 80px;
+			&:first-of-type {
+				margin-top: 60px;
+			}
+			h5 {
+				font-weight: 600;
+				font-size: 20px;
+				line-height: 24px;
+			}
+			p {
+				font-size: 18px;
+				line-height: 26px;
+				margin-top: 20px;
+			}
+		}
+	}
+	&__img {
+		width: 100%;
+		max-width: 965px;
+		height: 1134px;
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+	&__vegetables,
+	&__app {
+		position: relative;
+		img {
+			position: absolute;
+			right: 0;
+		}
+	}
+	&__vegetables {
+		top: -4rem;
+	}
+	&__app {
+		top: 8.5rem;
+	}
+	&__labels {
+		@include jcw(space-between, $c, $w);
+		width: 100%;
+		max-width: 348px;
+		position: absolute;
+		bottom: 100px;
+		right: 410px;
+		a {
+			&:hover {
+				opacity: 0.5;
+				@extend %transition;
+			}
+		}
+		img {
+			width: 168px;
+			height: 49.74px;
+			background: #C4C4C4;
+			border-radius: 6px;
+		}
+	}
+}
+
+@media (max-width: 1440px) {
+	.application {
+	    &__vegetables {
+	    	right: -25%;
+		}
+		&__app {
+			top: 11.5rem;
+			right: -27.5%;
+		}
+		&__labels {
+			bottom: 7rem;
+			right: 10rem;
+		}
+	}
+}
+@media (max-width: 1200px) {
+	.application {
+		&__body {
+			max-width: 100%;
+		}
+		&__img {
+			position: relative;
+		}
+		&__labels {
+		    bottom: 5rem;
+		    right: 0;
+		    left: 0;
+		    margin: 0 auto;
+		}
+	}
+}
+@media (max-width: 767px) {
+	.application {
+		&__body {
+			div {
+				margin-top: 2rem;
+			}
+		}
+		&__img {
+			height: 500px;
+    		top: -6.5rem;
+		}
+		&__vegetables,
+		&__app {
+			right: -40%;
+		}
+		&__vegetables,
+		&__app {
+			img {
+				width: 50%;
+    			left: 5rem;
+			}
+		}
+		&__vegetables {
+			top: 0;
+		}
+		&__app {
+			top: 9.5rem;
+		}
+		&__labels {
+			bottom: 10rem;
+		    left: -10rem;
+		    right: 0;
+		    width: 168px;
+			img {
+				margin: 1rem 0;
+			}
+		}
+	}
+}

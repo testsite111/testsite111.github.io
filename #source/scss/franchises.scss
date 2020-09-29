@@ -1,0 +1,161 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+
+.franchises {
+	background: #252525;
+	position: relative;
+    margin-top: -222px;
+    overflow: hidden;
+	&__body {
+		padding: 391px 0 104px;
+	}
+	&__body,
+	&__body h2 {
+		color: #fff;
+	}
+	&__body h2 {
+		&:first-of-type {
+			width: 661px;
+		}
+		&:last-of-type {
+			width: 600px;
+			position: relative;
+			top: 6.5rem;
+		}
+	}
+	&__columns {
+		@include jcw(space-between, flex-start, nowrap);
+	}
+	&__cities {
+		width: 100%;
+		max-width: 386px;
+		div {
+			&:first-of-type {
+				@include jcw($j, $c, nowrap);
+				margin: 43px 0 80px;
+			}
+		}
+		ul {
+			&:last-of-type {
+				margin-left: 134.75px;
+			}
+			li {
+				display: flex;
+				padding-top: 38px;
+				&::before {
+					content: url('/img/franchises/location.svg');
+					margin-right: 13.75px;
+				}
+			}
+		}
+	}
+	&__btn {
+	}
+	&__cities6 {
+		margin-top: -7rem;
+	}
+	&__vegetables {
+		display: flex;
+		justify-content: flex-end;
+		position: absolute;
+		right: 9rem;
+		top: 41.5%;
+		img {
+			width: 100%;
+    		height: 100%;
+		}
+	}
+	&__columns2 {
+		@include jcw(flex-end, $c, $w);
+		position: relative;
+		z-index: 1;
+		top: 6.3rem;
+    	right: 1.3rem;
+    	margin-bottom: 98px;
+	}
+	&__pizza {
+		position: absolute;
+		left: 0;
+   	 	bottom: -23%;
+		img {
+			width: 100%;
+    		height: 100%;
+		}
+	}
+}
+
+@media (max-width: 1440px) {
+	.franchises {
+		&__vegetables {
+			right: -6rem;
+	    	top: 41.6%;
+		}
+		&__pizza {
+		    left: -15rem;
+		    bottom: -23%;
+		}
+	}
+}
+@media (max-width: 767px) {
+	.franchises {
+		&__body {
+    		padding: 300px 0 0;
+    		margin-bottom: -50%;
+    		h2 {
+				width: 100% !important;
+				text-align: center;
+    		}
+		}
+		&__columns {
+			justify-content: center;
+			flex-wrap: wrap;
+		}
+		&__cities {
+			div {
+				&:first-of-type {
+					margin: 0 0 3rem;
+				}
+			}
+			ul {
+				&:last-of-type {
+					margin-left: 2rem;
+				}
+			}
+		}
+		&__cities6 {
+		    margin: 0;
+		}
+		&__vegetables {
+			position: relative;
+		    right: 0;
+		    margin-top: -6.5rem;
+		}
+		&__pizza {
+			position: relative;
+		    left: -5rem;
+		    top: -10rem;
+		}
+		&__columns2 {
+			justify-content: center;
+			right: 0;
+			top: -25rem;
+		}
+		&__form {
+			max-width: 100%;
+    		height: auto;
+		}
+		&__body h2 {
+			&:last-of-type {
+				top: -7rem;
+			}
+		}
+	}
+}

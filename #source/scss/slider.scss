@@ -1,0 +1,77 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+
+.h2 {
+	width: 100%;
+	max-width: 786px !important;
+	margin: 0 auto;
+	text-align: center;
+}
+.slider,
+.slider .container{
+	position: relative;
+}
+.slider {
+	width: 100%;
+	max-width: 1715px;
+	height: 523px;
+	overflow: hidden;
+	margin: 0 auto;
+	z-index: 1;
+	.container{
+		top: 50%;
+	}
+	&__photos {
+		@include jcw($j, $c, nowrap);
+		margin-top: 60px;
+		position: absolute;
+		left: 0;
+		right: 0;
+	}
+	&__photo {
+		width: 465px;
+		height: 305px;
+		margin: 0 7px;
+		background: #C4C4C4;
+		border-radius: 8px;
+		img {
+			border-radius: 10px;
+		}
+	}
+	.middle {
+		width: 756px;
+		height: 462.63px;
+	}
+	&__arrow {
+		@include jcw($j, $c, $w);
+		width: 77px;
+		height: 77px;
+		background: #FFFFFF;
+		border-radius: 50%;
+		position: absolute;
+		top: 50%;
+    	z-index: 1;
+		&:hover {
+			filter: invert(75%);
+			@extend %transition;
+		}
+		&:focus {
+			filter: invert(100%);
+			@extend %transition;
+		}
+	}
+	.left {
+		left: 0;
+	}
+	.right {
+		right: 0;
+	}
+}

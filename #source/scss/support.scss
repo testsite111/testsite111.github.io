@@ -1,0 +1,94 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+
+.support {
+	background: #FAFAFB;
+	padding: 110px 0 100px;
+	&__body {
+		@include jcw(space-between, flex-start, $w);
+		margin-top: -10px;
+	}
+	&__block {
+		flex: 0 0 561px;
+		margin-top: 70px;
+		&:last-of-type {
+			padding-left: 45px;
+			.support__text {
+				margin: 0;
+				p {
+					max-width: 100%;
+				}
+			}
+		}
+	}
+	&__img {
+		position: relative;
+		width: 100%;
+		max-width: 561px;
+		height: 300px;
+		background: linear-gradient(180deg, rgba(40, 40, 39, 0) 50.12%, rgba(40, 40, 39, 0.5) 100%);
+		border-radius: 0px;
+		img {
+			width: 100%;
+			height: 100%;
+		}
+		h2 {
+			position: absolute;
+			left: 30px;
+			bottom: 15px;
+			color: #fff;
+		}
+	}
+	&__text {
+		margin-top: 38px;
+		h5 {
+			font-weight: 600;
+			font-size: 20px;
+			line-height: 24px;
+		}
+		p {
+			width: 100%;
+			max-width: 485px;
+			font-size: 18px;
+			line-height: 26px;
+			padding-top: 20px;
+		}
+	}
+	&__btn {
+		margin-top: 49px;
+		width: 468px;
+	}
+}
+
+@media (max-width: 1200px) {
+	.support {
+		&__body {
+			justify-content: center;
+		}
+	}
+}
+@media (max-width: 767px) {
+	.support {
+		h2 {
+			text-align: center;
+		}
+		&__block {
+		    flex: 0 1 auto;
+		    margin-top: 3rem;
+		    &:last-of-type {
+				padding-left: 0;
+			}
+		}
+		&__img {
+			height: auto;
+		}
+	}
+}

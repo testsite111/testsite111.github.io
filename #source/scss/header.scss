@@ -1,0 +1,139 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+
+.header {
+	position: relative;
+	.ibg {
+		img {
+	    	visibility: hidden;
+	  	}
+	}
+	&__body {
+		position: relative;
+		z-index: 1;
+		padding: 42px 0 104px;
+		color: #fff;
+		a {
+			color: #fff;	
+		}
+	}
+	&__bg {
+		@extend %img;
+	}
+	&__top {
+		@include jcw(space-between, $c, $w);
+	}
+	&__call {
+		a {
+			font-weight: bold;
+			font-size: 22px;
+			line-height: 27px;
+		}
+		p {
+			font-size: 14px;
+			line-height: 17px;
+		}
+	}
+	&__title {
+		width: 100%;
+		max-width: 543px;
+		padding: 140px 0 126px;
+		p {
+			font-weight: 500;
+			font-size: 20px;
+			line-height: 30px;
+			width: 100%;
+			max-width: 431px;
+			padding-top: 36px;
+		}
+	}
+	&__bottom {
+		@include jcw(space-between, $c, $w);
+	}
+	&__btn {
+		width: 288px;
+	}
+	&__statics {
+		@include jcw($j, $c, $w);
+		margin: 0 -1px;
+		div	{
+			@include jcw($j, $c, $w);
+			height: 70px;
+			background: #282827;
+			border-radius: 4px 0px 0px 4px;
+			font-size: 18px;
+			line-height: 22px;
+			transform: rotate(-180deg);
+			margin: 0 1px;
+			&:first-of-type {
+				width: 273px;
+				transform: rotate(0deg);
+			}
+			&:nth-of-type(2) {
+				width: 248px;
+				border-radius: 0px;
+			}
+			&:last-of-type {
+				width: 291px;
+			}
+			&:nth-of-type(2),
+			&:last-of-type {
+				p {
+					transform: rotate(180deg);
+				}
+			}
+		}
+	}
+}
+
+@media (max-width: 1920px) {
+  .header .ibg {
+    background-position-y: -5.5rem;
+  }
+}
+@media (max-width: 1440px) {
+  .header .ibg {
+    background-position: center;
+  }
+}
+@media (max-width: 1200px) {
+  .header {
+  	&__bottom {
+  		justify-content: center;
+  	}
+  	&__btn {
+  		margin-right: 1rem;
+  	}
+  	&__statics div {
+  		margin: 0.5rem 1px;
+  	}
+  }
+}
+@media (max-width: 767px) {
+	.header {
+		&__top {
+			justify-content: space-evenly;
+		}
+		&__bottom {
+			max-width: 530px;
+			margin: 0 auto;
+			width: 100%;
+  		}
+		&__btn, 
+		&__title {
+			margin: 0 auto;
+		}
+		&__logo,
+		&__call {
+			padding-bottom: 1rem;
+		}
+	}
+}

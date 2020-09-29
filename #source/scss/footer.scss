@@ -1,0 +1,135 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+
+.footer {
+	background: #1C1C1C;
+	padding: 30px 0 32px;
+	position: relative;
+	&__body {
+		@include jcw($j, $c, $w);
+		a, span {
+			color: #fff;
+			font-size: 14px;
+			line-height: 17px;
+		}
+	}
+	&__links {
+		position: relative;
+		right: 6rem;
+		a {
+			text-decoration: underline;
+			&:hover {
+				text-decoration: none;
+				@extend %transition;
+			}
+		}
+	}
+	&__copy,
+	&__franch {
+		font-size: 14px;
+		line-height: 26px;
+	}
+	&__copy {
+		color: #F8CE4C !important;
+		line-height: 26px !important;
+		text-decoration: none !important;
+		&:hover {
+			opacity: 0.5;
+			@extend %transition;
+		}
+	}
+	&__conf,
+	&__franch {
+		color: #fff;
+	}
+	&__conf{
+		opacity: 0.4;
+	}
+	&__download {
+		width: 155px;
+		a {
+			&:hover {
+				opacity: 0.5;
+				@extend %transition;
+			}
+		}
+	}
+	&__phone {
+		a {
+			font-weight: bold;
+			font-size: 22px;
+			line-height: 27px;
+			&:hover {
+				opacity: 0.5;
+				@extend %transition;
+			}
+		}
+		p {
+			color: #fff;
+			font-size: 14px;
+			line-height: 17px;
+		}
+	}
+	&__labels {
+		margin: 0 -5px;
+		position: relative;
+		right: 16.75px;
+		a {
+			&:hover {
+				opacity: 0.5;
+				@extend %transition;
+			}
+		}
+		img {
+			width: 135.1px;
+			height: 40px;
+			margin: 0 5px;
+			border-radius: 7px;
+		}
+	}
+	&__app {
+		@include jcw($j, flex-start, $w);
+		margin: 0 -27px;
+		div {
+			margin: 0 27px;
+		}
+	}
+}
+
+@media (max-width: 1200px) {
+	.footer {
+		&__body {
+			justify-content: space-between;
+		}
+		&__links,
+		&__labels {
+			left: 0;
+		}
+	}
+}
+@media (max-width: 767px) {
+	.footer {
+		&__body {
+			justify-content: center;
+			text-align: center;
+		}
+		&__links,
+		&__labels,
+		&__app {
+			margin: 1rem;
+		}
+		&__links {
+			a {
+				margin: 0 1rem;
+			}
+		}
+	}
+}

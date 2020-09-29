@@ -1,0 +1,24 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+
+.main {
+	display: flex;
+	flex: 1 1 auto;
+	position: relative;
+	width: 100%;
+}
+
+@media (max-width: 1920px) {
+}
+@media (max-width: 1440px) {
+}
+@media (max-width: 767px) {
+}

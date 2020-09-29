@@ -1,0 +1,120 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+
+.plan {
+	position: relative;
+	&__bg {
+		@extend %img;
+		background-image: url('/img/plan/MaskGroup.jpg');
+	}
+	&__body {
+		position: relative;
+		z-index: 1;
+		padding: 114px 0 130px;
+		h2 {
+			color: #fff;
+		}
+		ul {
+			margin: -25px 0;
+			li {
+				@include jcw(flex-start, $c, $w);
+				font-size: 18px;
+				line-height: 22px;
+				padding: 25px 0;
+				&::before {
+					content: '';
+					border: 1px solid #FFFFFF;
+					box-sizing: border-box;
+					width: 16px;
+					height: 16px;
+					border-radius: 50%;
+					position: relative;
+    				left: 8px;
+				}
+				div {
+					@include jcw($j, $c, $w);
+					background: url('/img/plan/Subtract.png');
+					background-repeat: no-repeat;
+					width: 200px;
+					height: 64px;
+					border-radius: 4px;
+					font-weight: 600;
+					font-size: 24px;
+					line-height: 35px;
+					color: #F8CE4C;
+					margin-right: 32px;
+				}
+				span {
+					width: 323px;
+					color: #fff;
+				}
+				&:nth-of-type(3) {
+					span {
+						padding-right: 6rem;
+					}
+				}
+				&:last-of-type {
+					span {
+						padding-right: 2rem;
+					}
+				}
+			}
+		}
+	}
+	&__list {
+		@include jcw(flex-start, $c, nowrap);
+		margin-top: 60px;
+	}
+	&__btn {
+		width: 332px;
+		margin-top: 70px;
+	}
+}
+
+@media (max-width: 1440px) {
+	.plan {
+		&__bg {
+			background-image: url('/img/plan/MaskGroup2.jpg');
+		}
+	}
+}
+@media (max-width: 767px) {
+	.plan {
+		&__body {
+			ul {
+				li {
+					justify-content: center;
+					text-align: center;
+					div {
+						margin: 0;
+					}
+					span {
+						width: 100%;
+					}
+					&:nth-of-type(3),
+					&:last-of-type {
+						span {
+							padding-right: 0;
+						}
+					}
+				}
+			}
+		}
+		&__list {
+			align-items: flex-start;
+			div {
+				img {
+					margin-top: 4rem !important;
+				}
+			}
+		}
+	}
+}

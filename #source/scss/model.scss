@@ -1,0 +1,163 @@
+$j: center;
+$c: center;
+$w: wrap;
+
+@mixin jcw($j, $c, $w) {
+  display: flex;
+  justify-content: $j;
+  align-items: $c;
+  flex-wrap: $w;
+}
+
+.model {
+	&__body {
+		padding: 100px 0 123px;
+		h2 {
+			&:first-of-type {
+				width: 100%;
+				max-width: 695px;
+			}
+			&:last-of-type {
+				width: 100%;
+				max-width: 668px;
+				margin-top: 120px;
+			}
+		}
+	}
+	&__columns {
+		@include jcw(space-between, flex-start, $w);
+		margin-top: 60px;
+	}
+	&__text {
+		flex: 0 0 562px;
+		p {
+			font-size: 18px;
+			line-height: 26px;
+			color: #282827;
+		}
+	}
+	&__img {
+		position: relative;
+	}
+	&__name {
+		position: absolute;
+		padding: 123px 0 0 53px;
+		width: 50%;
+		font-size: 14px;
+		h5 {
+			font-weight: 600;
+			line-height: 20px;
+		}
+		p {
+			line-height: 16px;
+			padding-top: 19px;
+		}
+	}
+	&__statics {
+		@include jcw($j, $c, $w);
+		margin-top: 60px;
+	}
+	&__static {
+		@include jcw($j, $c, $w);
+		width: 380px;
+		height: 241px;
+		background: #FAFAFB;
+		border: 1px solid #FFFFFF;
+		box-sizing: border-box;
+		position: relative;
+		&:last-of-type {
+			background: none;
+		}
+	}
+	&__count,
+	&__phrase {
+		position: absolute;
+	}
+	&__count {
+		width: 100%;
+		top: 60px;
+		&:nth-of-type(4) {
+			top: 52px;
+		}
+		&:last-of-type {
+			top: 50px;
+		}
+		p {
+			@include jcw($j, $c, $w);
+			width: fit-content;
+			height: 64px;
+			background: #F8CE4C;
+			font-family: 'Jost';
+			font-style: normal;
+			font-weight: 600;
+			font-size: 42px;
+			line-height: 44px;
+			color: #282827;
+			margin: 0 auto;
+			&:first-of-type {
+				padding: 0 27px 0 29px;
+			}
+			&:nth-of-type(2) {
+				padding: 0 42px;
+			}
+			&:nth-of-type(3) {
+				padding: 0 8px 0 9px;
+			}
+			&:nth-of-type(4),
+			&:last-of-type {
+				padding: 0 17px 0 18px;
+			}
+		}
+	}
+	&__phrase {
+		bottom: 62px;
+		&:nth-of-type(3),
+		&:last-of-type {
+			bottom: 40px;
+			padding: 0 40px;
+		}
+		p {
+			font-weight: normal;
+			font-size: 18px;
+			line-height: 22px;
+			color: #282827;
+		}	
+	}
+	&__btn {
+		width: 290px;
+	}
+}
+
+@media (max-width: 767px) {
+	.model {
+		&__columns {
+			justify-content: center;
+		}
+		&__img {
+	    	margin-top: 2rem;
+		}
+		&__body {
+		    padding: 100px 0 0;
+		}
+		&__text {
+		    flex: 1 1 562px;
+		}
+		&__name {
+			padding: 1rem;
+			font-size: 12px;
+		}
+		&__img {
+			img {
+				width: 100%;
+			}
+		}
+		&__count {
+			p {
+				font-size: 2.5rem;
+			}
+		}
+		&__phrase {
+			bottom: 1rem !important;
+		}
+	}
+}
